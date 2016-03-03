@@ -1,0 +1,8 @@
+{{#link-to 'posts'}}&larr; Back{{/link-to}}
+<h1>{{ model.name }}</h1>
+
+<code>{{ model.description }}</code>
+
+{{#each model.comments as |comment|}}
+<p>{{comment.description}}</p>
+{{/each}}
