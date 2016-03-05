@@ -1,7 +1,5 @@
+<ul>
 {{#each model as |post|}}
-
-{{#each model as |post|}}
-  {{link-to post.name 'post' post.id}}
+  <li>{{link-to post.title 'post' post.id}}</li>
 {{/each}}
-
-{{/each}}
+</ul>

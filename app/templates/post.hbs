@@ -1,8 +1,10 @@
 {{#link-to 'posts'}}&larr; Back{{/link-to}}
-<h1>{{ model.name }}</h1>
+<h1>{{ model.title }}</h1>
 
-<code>{{ model.description }}</code>
+<code>{{ model.body }}</code>
 
 {{#each model.comments as |comment|}}
-<p>{{comment.description}}</p>
+<p>{{comment.body}}</p>
 {{/each}}
+
+<button {{action "generate" model}}>Generate comment</button>
