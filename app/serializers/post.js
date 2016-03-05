@@ -3,12 +3,12 @@ import ApplicationSerializer from './application';
 export default ApplicationSerializer.extend({
   
   normalizeFindAllResponse(store, type, payload) {
-    payload.data.forEach(this.addLinks);
+    payload.data = payload.data.map(this.addLinks);
     return payload;
   },
   
   normalizeFindRecordResponse(store, type, payload) {
-    this.addLinks(payload.data);
+    payload.data = this.addLinks(payload.data);
     return payload;
   },
   
