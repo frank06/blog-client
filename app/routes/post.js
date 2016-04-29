@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  
   model(params) {
     return this.store.findRecord('post', params.id);
   },
@@ -12,9 +13,9 @@ export default Ember.Route.extend({
       comment.save();
     },
     
-    paginate() {
+    paginate(page) {
       const post = this.currentModel;
-      post.set('qp', 'justone'); // can't use meta?
+      post.set('query-params', { page: page });
       post.get('comments').reload();
     }
   }
