@@ -7,6 +7,11 @@
 <p>{{comment.body}}</p>
 {{/each}}
 
-<button {{action "generate" model}}>Generate comment</button>
+Title: {{ input value=model.title }}<br>
+Body: {{ input value=model.body }}<br>
+
+<button {{action "save"}}>Save</button><br>
+
+<button {{action "generate" model}}>Generate comment</button><br>
 
 <button {{action "paginate" 1}}>Paginate</button>

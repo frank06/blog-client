@@ -17,7 +17,13 @@ export default Ember.Route.extend({
       const post = this.currentModel;
       post.set('query-params', { page: page });
       post.get('comments').reload();
+    },
+    
+    save() {
+      const post = this.currentModel;
+      post.save();
     }
+    
   }
   
 });
