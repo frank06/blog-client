@@ -19,22 +19,12 @@ export default ApplicationSerializer.extend({
     return post;
   },
   
-  serializeAttribute: function(snapshot,json,key,attributes) {
+  serializeAttribute(snapshot, json, key, attributes) {
     
-    debugger;
-    if ( snapshot.changedAttributes()[key] || snapshot.record.get('isNew'))  {
-      var t = this._super(snapshot, json, key, attributes);
-
-      Object.keys(json).forEach((k) => {
-        if (json[k] === null) {
-          json[k] = undefined;
-        }
-      });
-
-      return t;
-    } else {
-      return;
+    if (snapshot.record.get('isNew') || snapshot.changedAttributes()[key]) {
+      this._super(snapshot, json, key, attributes);
     }
+    
   }
-  
+
 });
