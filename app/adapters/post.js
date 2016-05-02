@@ -2,6 +2,13 @@ import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
   
+  urlForQuery(query) {
+    if (query.userId) {
+      return `${this.urlPrefix()}/users/${query.userId}/feed`;
+    }
+    return this._super(...arguments);
+  },
+  
   findHasMany(store, snapshot, url, relationship) {
     const id = snapshot.id,
       type = snapshot.modelName;
